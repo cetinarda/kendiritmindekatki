@@ -35,13 +35,10 @@
   .wrap { width: 100%; max-width: 560px; }
 
   header { text-align: center; margin-bottom: 28px; }
-  .logo {
-    display: inline-block; width: 220px; max-width: 70%;
-    margin-bottom: 14px;
-    transition: opacity .2s ease;
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 10px;
   }
-  .logo:hover { opacity: 0.85; }
-  .logo img { width: 100%; height: auto; display: block; }
   h1 { font-size: 24px; font-weight: 700; line-height: 1.25; }
   .sub { color: var(--muted); font-size: 14px; margin-top: 8px; line-height: 1.5; }
 
@@ -117,9 +114,7 @@
 <body>
 <div class="wrap">
   <header>
-    <a class="logo" href="https://www.instagram.com/kendiritminde/" target="_blank" rel="noopener" aria-label="Kendi Ritminde">
-      <img src="logo.png" alt="Kendi Ritminde" />
-    </a>
+    <div class="eyebrow">Kendi Ritminde</div>
     <h1>Kasa Katkı Takibi</h1>
     <p class="sub">Buluşmalar sonrası oluşan açığı kapatmak için gönüllü katkılar</p>
   </header>
