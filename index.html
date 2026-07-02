@@ -69,6 +69,33 @@
   .updated { text-align: center; color: var(--muted); font-size: 12px; margin-top: 20px; }
   .updated a { color: var(--accent); text-decoration: none; }
 
+  .info {
+    margin-top: 20px;
+    background: linear-gradient(180deg, var(--card), var(--bg-soft));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 26px 24px;
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .info p { margin-bottom: 14px; }
+  .info p:last-child { margin-bottom: 0; }
+  .info .highlight { color: var(--accent); font-weight: 600; }
+  .info a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .info a:hover { text-decoration: underline; }
+  .cta {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--accent-2), #6A48D8);
+    color: #fff !important;
+    font-weight: 700;
+    box-shadow: 0 12px 30px rgba(126,91,239,0.35);
+  }
+  .cta:hover { text-decoration: none !important; opacity: 0.95; }
+
   .state { text-align: center; color: var(--muted); padding: 30px 0; }
   .error { color: #ff9aa2; }
   .skeleton { opacity: 0.5; }
@@ -92,13 +119,23 @@
   </div>
 
   <p class="updated" id="updated"></p>
+
+  <div class="info">
+    <p>Katkıların, <span class="highlight">10 Temmuz Cuma 20:30</span>'daki
+      <span class="highlight">#kendiritminde Meditasyon Alanı</span>'na (online) erişim imkânı sağlıyor.</p>
+    <p>Bu alanı deneyimlemek ve katkı sunmak için formu doldurman yeterli:</p>
+    <p style="text-align:center; margin-top:18px;">
+      <a class="cta" href="https://forms.gle/zrsvhTajNDCMbxQy5" target="_blank" rel="noopener">Katılım formunu doldur</a>
+    </p>
+    <p style="margin-top:18px;">Ayrıca <a href="https://sakin.life" target="_blank" rel="noopener">sakin.life</a>'ı
+      deneyerek dijital bir farkındalık alanına dâhil olabilirsin.</p>
+  </div>
 </div>
 
 <script>
   // Google E-Tablolar'daki dosyaya canlı bağlanır (herkese açık görüntüleme linki).
   const SHEET_ID = "1v3zbukkH5HS7tgx5bGifPOqdLMWpHFEV";
   const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&t=${Date.now()}`;
-  const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/edit`;
 
   // Minimal CSV parser (tırnaklı alanları ve virgülleri destekler).
   function parseCSV(text) {
@@ -179,7 +216,7 @@
     });
 
     document.getElementById("updated").innerHTML =
-      `Son güncelleme: ${new Date().toLocaleString("tr-TR")} · <a href="${SHEET_URL}" target="_blank" rel="noopener">Kaynak tablo</a>`;
+      `Son güncelleme: ${new Date().toLocaleString("tr-TR")}`;
   }
 
   async function load() {
