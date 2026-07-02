@@ -66,17 +66,6 @@
   .pct span { font-size: 26px; color: var(--muted); font-weight: 700; }
   .pct-label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
-  .stats { display: flex; gap: 12px; margin-top: 6px; }
-  .stat {
-    flex: 1; text-align: center;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 14px 10px;
-  }
-  .stat .label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .stat .value { font-size: 17px; font-weight: 700; margin-top: 6px; }
-
   .updated { text-align: center; color: var(--muted); font-size: 12px; margin-top: 20px; }
   .updated a { color: var(--accent); text-decoration: none; }
 
@@ -142,8 +131,6 @@
     return isNaN(n) ? null : n;
   }
 
-  const fmtTL = new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 });
-
   // Bir satırda etiketi bulup aynı satırdaki ilk sayıyı döndürür.
   function findValue(rows, keyword) {
     for (const r of rows) {
@@ -182,20 +169,6 @@
             <div class="pct">${pctRounded}<span>%</span></div>
             <div class="pct-label">Tamamlandı</div>
           </div>
-        </div>
-      </div>
-      <div class="stats">
-        <div class="stat">
-          <div class="label">Toplanan</div>
-          <div class="value">${fmtTL.format(collected)}</div>
-        </div>
-        <div class="stat">
-          <div class="label">Hedef</div>
-          <div class="value">${fmtTL.format(target)}</div>
-        </div>
-        <div class="stat">
-          <div class="label">Kalan</div>
-          <div class="value">${fmtTL.format(remaining)}</div>
         </div>
       </div>
     `;
